@@ -1,0 +1,7 @@
+/front-end/node_modules
+/front-end/pnpm-lock.yaml
+/front-end/package-lock.json
+/front-end/test-results
+/back-end/vendor
+/front-end/coverage
+/front-end/storageState.json

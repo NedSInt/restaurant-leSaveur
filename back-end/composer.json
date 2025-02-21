@@ -1,0 +1,47 @@
+{
+    "name": "pis/g2",
+    "autoload": {
+        "psr-4": {
+            "" : [
+                "src/",
+                "src/cliente",
+                "src/exception",
+                "src/funcionario",
+                "src/mesa",
+                "src/reserva",
+                "src/categoria",
+                "src/produto",
+                "src/item",
+                "src/conta",
+                "src/autenticacao",
+                "src/login",
+                "src/relatorio"
+            ]
+        }
+    },
+    "scripts": {
+        "dump": "composer dump-autoload",
+        "test": "kahlan --reporter=verbose",
+        "cov": "kahlan --coverage",
+        "check" : "phpstan analyze"
+    },
+    "authors": [
+        {
+            "name": "Lucas Amaral",
+            "email": "lucas.amaral@aluno.cefet-rj.br"
+        },
+        {
+            "name": "Jhonatan Pacheco",
+            "email": "jhonatan.pacheco@aluno.cefet-rj.br"
+        }
+    ],
+    "require-dev": {
+        "phpstan/phpstan": "^2.0",
+        "kahlan/kahlan": "^5.2"
+    },
+    "require": {
+        "phputil/router": "^0.3.3",
+        "phputil/tdatetime": "^1.1",
+        "phputil/cors": "^0.5.1"
+    }
+}

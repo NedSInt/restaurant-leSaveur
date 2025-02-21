@@ -1,0 +1,80 @@
+CREATE TABLE cliente (
+    id INT(11) NOT NULL AUTO_INCREMENT,
+    nome VARCHAR(160) NOT NULL,
+    PRIMARY KEY (id)
+)ENGINE=INNODB;
+
+CREATE TABLE funcionario (
+    id INT(11) NOT NULL AUTO_INCREMENT,
+    nome VARCHAR(160) DEFAULT '',
+    login VARCHAR(50) NOT NULL,
+    senha text NOT NULL,
+    PRIMARY KEY (id)
+)ENGINE=INNODB;
+
+CREATE TABLE mesa (
+    id INT(11) NOT NULL AUTO_INCREMENT,
+    nome VARCHAR(160) NOT NULL,
+    PRIMARY KEY (id)
+)ENGINE=INNODB;
+
+CREATE TABLE reserva (
+    id INT(11) NOT NULL AUTO_INCREMENT,
+    idMesa INT(11) NOT NULL,
+    idCliente INT(11) NOT NULL,
+    idFuncionario INT(11) NOT NULL,
+    dataReserva DATETIME NOT NULL,
+    ativo BOOLEAN DEFAULT 1,
+    -- status TINYINT(1) DEFAULT 1,
+    PRIMARY KEY (id),
+    CONSTRAINT fk_reserva__idMesa FOREIGN KEY (idMesa) REFERENCES mesa(id) ON UPDATE CASCADE ON DELETE CASCADE,
+    CONSTRAINT fk_reserva__idCliente FOREIGN KEY (idCliente) REFERENCES cliente(id) ON UPDATE CASCADE ON DELETE CASCADE,
+    CONSTRAINT fk_reserva__idFuncionario FOREIGN KEY (idFuncionario) REFERENCES funcionario(id) ON UPDATE CASCADE ON DELETE RESTRICT
+)ENGINE=INNODB;
+
+-- Alterações de estrutura para P2
+
+ALTER TABLE cliente ADD COLUMN telefoneCelular VARCHAR(20) DEFAULT '';
+
+ALTER TABLE funcionario ADD COLUMN cargo ENUM('ATENDENTE', 'GERENTE') DEFAULT 'ATENDENTE' NOT NULL AFTER nome;
+
+ALTER TABLE funcionario ADD COLUMN sal VARCHAR(255) NOT NULL AFTER senha;
+
+CREATE TABLE categoria(
+    id INT(11) NOT NULL AUTO_INCREMENT,
+    nome VARCHAR(160) DEFAULT '',
+    PRIMARY KEY (id)
+)ENGINE=INNODB;
+
+CREATE TABLE produto(
+    id INT(11) NOT NULL AUTO_INCREMENT,
+    idCategoria INT(11) NOT NULL,
+    codigo VARCHAR(50) DEFAULT '',
+    descricao VARCHAR(160) DEFAULT '',
+    preco DECIMAL(10, 2) DEFAULT 0.00,
+    PRIMARY KEY (id),
+    CONSTRAINT fk_produto__idCategoria FOREIGN KEY (idCategoria) REFERENCES categoria(id) ON UPDATE CASCADE ON DELETE CASCADE
+)ENGINE=INNODB;
+
+CREATE TABLE conta(
+    id INT(11) NOT NULL AUTO_INCREMENT,
+    idReserva INT(11) NOT NULL,
+    formaPagamento ENUM('DINHEIRO', 'PIX', 'CARTAO_DEBITO', 'CARTAO_CREDITO') DEFAULT NULL,
+    porcentagemDesconto INT(3),
+    concluida BOOLEAN DEFAULT 1,
+    PRIMARY KEY (id),
+    CONSTRAINT fk_conta__idReserva FOREIGN KEY (idReserva) REFERENCES reserva(id) ON UPDATE CASCADE ON DELETE CASCADE
+)ENGINE=INNODB;
+
+CREATE TABLE item(
+    id INT(11) NOT NULL AUTO_INCREMENT,
+    idProduto INT(11) NOT NULL,
+    idConta INT(11) NOT NULL,
+    idFuncionario INT(11) NOT NULL,
+    quantidade INT(3),
+    preco DECIMAL(10, 2) DEFAULT 0.00,
+    PRIMARY KEY (id),
+    CONSTRAINT fk_item__idProduto FOREIGN KEY (idProduto) REFERENCES produto(id) ON UPDATE CASCADE ON DELETE CASCADE,
+    CONSTRAINT fk_item__idConta FOREIGN KEY (idConta) REFERENCES conta(id) ON UPDATE CASCADE ON DELETE CASCADE,
+    CONSTRAINT fk_item__idFuncionario FOREIGN KEY (idFuncionario) REFERENCES funcionario(id) ON UPDATE CASCADE ON DELETE CASCADE
+)ENGINE=INNODB;

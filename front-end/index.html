@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Restaurante La Saveur</title>
+        <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
+        <link href="./node_modules/startbootstrap-sb-admin/dist/css/styles.css" rel="stylesheet" />
+        <link href="./src/css/styles.css" rel="stylesheet" />
+        <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <div class="sb-nav-fixed">
+
+            <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
+                <a class="navbar-brand ps-3" href="/">La Saveur</a>
+                <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
+    
+                <!-- Navbar-->
+                <ul class="navbar-nav ms-auto me-0 me-md-3 my-2 my-md-0">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" id="logout-button" href="#!">Sair da Sessão</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+            <div id="layoutSidenav">
+                <div id="layoutSidenav_nav">
+                    <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+                        <div class="sb-sidenav-menu">
+                            <div class="nav">
+                                <div class="sb-sidenav-menu-heading">Reserva</div>
+                                <a class="nav-link" href="/reserva">
+                                    <div class="sb-nav-link-icon"><i class="fas fa-calendar-plus"></i></div>
+                                    Reservar Mesa
+                                </a>
+                                <a class="nav-link" href="/listagem-reservas">
+                                    <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
+                                    Listar Reservas
+                                </a>
+
+                                <div class="sb-sidenav-menu-heading">Conta</div>
+                                <a class="nav-link" href="/abrir-conta">
+                                    <div class="sb-nav-link-icon"><i class="fas fa-calendar-plus"></i></div>
+                                    Abrir conta
+                                </a>
+                                <a class="nav-link" href="/listagem-contas">
+                                    <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
+                                    Contas em atendimento
+                                </a>
+    
+                                <div class="sb-sidenav-menu-heading">Relatórios</div>
+                                <a class="nav-link" href="/relatorio-reservas">
+                                    <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
+                                    Relatório de Reservas
+                                </a>
+                                <a class="nav-link collapsed" href="#" data-relatorio-vendas data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
+                                    <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
+                                    Relatórios de vendas
+                                    <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                                </a>
+                                <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                                    <nav class="sb-sidenav-menu-nested nav">
+                                        <a class="nav-link" href="/relatorio-vendas/forma-pagamento">Forma de pagamento</a>
+                                        <a class="nav-link" href="/relatorio-vendas/funcionario">Funcionário</a>
+                                        <a class="nav-link" href="/relatorio-vendas/categoria">Categoria</a>
+                                        <a class="nav-link" href="/relatorio-vendas/diario">Diário</a>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="sb-sidenav-footer">
+                            <div class="small">Funcionário Logado:</div>
+                            <span id="usuario-logado">Start Bootstrap</span>
+                        </div>
+                    </nav>
+                </div>
+                <div id="layoutSidenav_content">
+                    <main id="app">
+                        <div class="container-fluid px-4">
+                            
+                        </div>
+                    </main>
+                </div>
+            </div>
+        </div>
+        
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+        <script src="./node_modules/startbootstrap-sb-admin/dist/js/scripts.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js" crossorigin="anonymous"></script>
+        <script src="./node_modules/startbootstrap-sb-admin/dist/js/datatables-simple-demo.js"></script>
+
+        <script type="module" src="./src/index.ts"></script>
+
+    </body>
+</html>

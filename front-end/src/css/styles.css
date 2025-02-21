@@ -1,0 +1,39 @@
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+.mensagem-erro{
+    padding:2px;
+    margin-top:2px;
+}
+
+colgroup.acoes{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+}
+
+table button {
+    width: 100%;
+    height: 100%;
+}
+
+#div-produtos div div.row{
+    max-width: 100%;
+    overflow-wrap: break-word;
+}
+
+div.div-adicionar-item.deslizar-encolher {
+    transition: all 1s ease;
+    overflow: hidden;
+    height: auto;
+}
+
+div.div-adicionar-item.deslizar-encolher.sair {
+    height: 0;
+    margin: 0;
+    padding: 0;
+    opacity: 0;
+}

@@ -1,0 +1,34 @@
+{
+  "name": "g2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc && vite build",
+    "dev": "vite",
+    "test": "vitest run test",
+    "coverage": "vitest run --coverage",
+    "e2e": "playwright test e2e"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@playwright/test": "^1.49.0",
+    "@types/node": "^22.9.0",
+    "@types/page": "^1.11.9",
+    "@vitest/coverage-v8": "^2.1.8",
+    "jsdom": "^25.0.1",
+    "page": "github:visionmedia/page.js",
+    "sweetalert2": "^11.14.5",
+    "typescript": "^5.6.3",
+    "vite": "^5.4.11",
+    "vitest": "^2.1.4"
+  },
+  "dependencies": {
+    "bootstrap": "^5.3.3",
+    "chart.js": "^4.4.7",
+    "startbootstrap-sb-admin": "^7.0.7",
+    "toastify-js": "^1.12.0"
+  }
+}
