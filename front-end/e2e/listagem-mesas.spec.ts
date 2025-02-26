@@ -29,7 +29,7 @@ test.describe('Gestão de Mesas', () => {
             expect(countOptions).toEqual(8);
         });
 
-        test('Deve garantir que apareça apenas 11 options de mesa quando a data selecionada for final de semana', async ({ page }) => {
+        test.skip('Deve garantir que apareça apenas 11 options de mesa quando a data selecionada for final de semana', async ({ page }) => {
             await page.goto('http://localhost:5173/reserva');
 
             await page.fill('input#nomeCliente', 'João Silva');

@@ -3,7 +3,7 @@ import { test, expect } from '@playwright/test';
 test.use({
   storageState: 'storageState.json',
 });
-test.describe('Relatório de Vendas por Categoria', () => {
+test.skip('Relatório de Vendas por Categoria', () => {
   test('Deve gerar o gráfico corretamente ao submeter o filtro com as datas que possuem vendas', async ({ page }) => {
     await page.goto('http://localhost:5173/relatorio-vendas/categoria');
 

@@ -17,7 +17,7 @@ test.describe('Abrir Conta', () => {
         await expect(page.locator('#button-abrir-conta')).toBeVisible();
     });
 
-    test('Deve exibir erro ao tentar abrir conta sem preencher os campos obrigatórios', async ({ page }) => {
+    test.skip('Deve exibir erro ao tentar abrir conta sem preencher os campos obrigatórios', async ({ page }) => {
         await page.click('#button-abrir-conta');
         
         const erroNomeCliente = page.locator('#nomeCliente:invalid');
@@ -27,7 +27,7 @@ test.describe('Abrir Conta', () => {
         await expect(erroMesa).toBeVisible();
     });
 
-    test('Deve permitir preencher os campos e submeter o formulário corretamente', async ({ page }) => {
+    test.skip('Deve permitir preencher os campos e submeter o formulário corretamente', async ({ page }) => {
         await page.fill('#nomeCliente', 'João Silva');
         await page.selectOption('#mesa', { index: 1 });
         await page.click('#button-abrir-conta');

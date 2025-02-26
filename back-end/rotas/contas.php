@@ -95,10 +95,10 @@ $app->route('/contas')
 
             $itens = $itemGestor->listarItensDaConta($idConta);
 
-            if( empty($itens) ){
-                $res->status(204)->send('');
-                return;
-            }
+            // if( empty($itens) ){
+            //     $res->status(204)->send([]);
+            //     return;
+            // }
 
             $res->status(200)->json( $itens );
         } catch( ValidacaoException $e ){
